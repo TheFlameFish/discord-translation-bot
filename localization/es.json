@@ -1,0 +1,12 @@
+{
+    "command.ping.name": "ping",
+    "command.ping.description": "Comprueba la latencia del bot.",
+    "command.ping.response": "¡Pong! La latencia es de {ping}ms.",
+
+    "command.translate.name": "traducir",
+    "command.translate.description": "Traduce texto a otro idioma.",
+    "command.translate.error.no_target": "Necesitas especificar un idioma de destino.",
+    "command.translate.error.no_text": "Necesitas especificar un texto para traducir.",
+    "command.translate.error.invalid_target": "El idioma de destino no es válido.",
+    "command.translate.error.permission": "No tienes permiso para usar el comando 'traducir'."
+}

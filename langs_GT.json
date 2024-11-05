@@ -1,0 +1,513 @@
+{
+    "en": {
+        "flags": ["🇬🇧", "🇺🇸"],
+        "emoji-tag": [":flag_gb:", ":flag_us:"],
+        "full": "English",
+        "full_en": "English",
+        "aliases": ["eng", "us", "uk"]
+    },
+    "fr": {
+        "flags": ["🇫🇷"],
+        "emoji-tag": [":flag_fr:"],
+        "full": "français",
+        "full_en": "French",
+        "aliases": ["fre", "frn"]
+    },
+    "es": {
+        "flags": ["🇪🇸", "🇲🇽"],
+        "emoji-tag": [":flag_es:", ":flag_mx:"],
+        "full": "español",
+        "full_en": "Spanish",
+        "aliases": ["sp", "esp", "latam"]
+    },
+    "de": {
+        "flags": ["🇩🇪"],
+        "emoji-tag": [":flag_de:"],
+        "full": "Deutsch",
+        "full_en": "German",
+        "aliases": ["ger", "deu"]
+    },
+    "it": {
+        "flags": ["🇮🇹"],
+        "emoji-tag": [":flag_it:"],
+        "full": "italiano",
+        "full_en": "Italian",
+        "aliases": ["ita"]
+    },
+    "ru": {
+        "flags": ["🇷🇺"],
+        "emoji-tag": [":flag_ru:"],
+        "full": "русский",
+        "full_en": "Russian",
+        "aliases": ["rus"]
+    },
+    "ja": {
+        "flags": ["🇯🇵"],
+        "emoji-tag": [":flag_jp:"],
+        "full": "日本語",
+        "full_en": "Japanese",
+        "aliases": ["jp"]
+    },
+    "ko": {
+        "flags": ["🇰🇷"],
+        "emoji-tag": [":flag_kr:"],
+        "full": "한국어",
+        "full_en": "Korean",
+        "aliases": ["kor"]
+    },
+    "zh-CN": {
+        "flags": ["🇨🇳"],
+        "emoji-tag": [":flag_cn:"],
+        "full": "简体中文",
+        "full_en": "Chinese (Simplified)",
+        "aliases": ["cn", "zh"]
+    },
+    "ar": {
+        "flags": ["🇸🇦"],
+        "emoji-tag": [":flag_sa:"],
+        "full": "العربية",
+        "full_en": "Arabic",
+        "aliases": ["ara"]
+    },
+    "nl": {
+        "flags": ["🇳🇱"],
+        "emoji-tag": [":flag_nl:"],
+        "full": "Nederlands",
+        "full_en": "Dutch",
+        "aliases": ["dut"]
+    },
+    "pl": {
+        "flags": ["🇵🇱"],
+        "emoji-tag": [":flag_pl:"],
+        "full": "polski",
+        "full_en": "Polish",
+        "aliases": ["pol"]
+    },
+    "tr": {
+        "flags": ["🇹🇷"],
+        "emoji-tag": [":flag_tr:"],
+        "full": "Türkçe",
+        "full_en": "Turkish",
+        "aliases": ["tur"]
+    },
+    "hi": {
+        "flags": ["🇮🇳"],
+        "emoji-tag": [":flag_in:"],
+        "full": "हिन्दी",
+        "full_en": "Hindi",
+        "aliases": ["hin"]
+    },
+    "th": {
+        "flags": ["🇹🇭"],
+        "emoji-tag": [":flag_th:"],
+        "full": "ไทย",
+        "full_en": "Thai",
+        "aliases": ["tha"]
+    },
+    "sv": {
+        "flags": ["🇸🇪"],
+        "emoji-tag": [":flag_se:"],
+        "full": "svenska",
+        "full_en": "Swedish",
+        "aliases": ["swe"]
+    },
+    "da": {
+        "flags": ["🇩🇰"],
+        "emoji-tag": [":flag_dk:"],
+        "full": "dansk",
+        "full_en": "Danish",
+        "aliases": ["dan"]
+    },
+    "fi": {
+        "flags": ["🇫🇮"],
+        "emoji-tag": [":flag_fi:"],
+        "full": "suomi",
+        "full_en": "Finnish",
+        "aliases": ["fin"]
+    },
+    "uk": {
+        "flags": ["🇺🇦"],
+        "emoji-tag": [":flag_ua:"],
+        "full": "українська",
+        "full_en": "Ukrainian",
+        "aliases": ["ukr"]
+    },
+    "vi": {
+        "flags": ["🇻🇳"],
+        "emoji-tag": [":flag_vn:"],
+        "full": "Tiếng Việt",
+        "full_en": "Vietnamese",
+        "aliases": ["vie"]
+    },
+    "he": {
+        "flags": ["🇮🇱"],
+        "emoji-tag": [":flag_il:"],
+        "full": "עברית",
+        "full_en": "Hebrew",
+        "aliases": ["heb"]
+    },
+    "id": {
+        "flags": ["🇮🇩"],
+        "emoji-tag": [":flag_id:"],
+        "full": "Bahasa Indonesia",
+        "full_en": "Indonesian",
+        "aliases": ["ind"]
+    },
+    "ms": {
+        "flags": ["🇲🇾"],
+        "emoji-tag": [":flag_my:"],
+        "full": "Bahasa Melayu",
+        "full_en": "Malay",
+        "aliases": ["mal"]
+    },
+    "hu": {
+        "flags": ["🇭🇺"],
+        "emoji-tag": [":flag_hu:"],
+        "full": "magyar",
+        "full_en": "Hungarian",
+        "aliases": ["hun"]
+    },
+    "cs": {
+        "flags": ["🇨🇿"],
+        "emoji-tag": [":flag_cz:"],
+        "full": "čeština",
+        "full_en": "Czech",
+        "aliases": ["cze"]
+    },
+    "bg": {
+        "flags": ["🇧🇬"],
+        "emoji-tag": [":flag_bg:"],
+        "full": "български",
+        "full_en": "Bulgarian",
+        "aliases": ["bul"]
+    },
+    "sl": {
+        "flags": ["🇸🇮"],
+        "emoji-tag": [":flag_si:"],
+        "full": "slovenščina",
+        "full_en": "Slovenian",
+        "aliases": ["slo"]
+    },
+    "sk": {
+        "flags": ["🇸🇰"],
+        "emoji-tag": [":flag_sk:"],
+        "full": "slovenčina",
+        "full_en": "Slovak",
+        "aliases": ["slk"]
+    },
+    "sr": {
+        "flags": ["🇷🇸"],
+        "emoji-tag": [":flag_rs:"],
+        "full": "српски",
+        "full_en": "Serbian",
+        "aliases": ["srp"]
+    },
+    "lt": {
+        "flags": ["🇱🇹"],
+        "emoji-tag": [":flag_lt:"],
+        "full": "lietuvių",
+        "full_en": "Lithuanian",
+        "aliases": ["lit"]
+    },
+    "lv": {
+        "flags": ["🇱🇻"],
+        "emoji-tag": [":flag_lv:"],
+        "full": "latviešu",
+        "full_en": "Latvian",
+        "aliases": ["lav"]
+    },
+    "mt": {
+        "flags": ["🇲🇹"],
+        "emoji-tag": [":flag_mt:"],
+        "full": "Malti",
+        "full_en": "Maltese",
+        "aliases": ["mlt"]
+    },
+    "el": {
+        "flags": ["🇬🇷"],
+        "emoji-tag": [":flag_gr:"],
+        "full": "Ελληνικά",
+        "full_en": "Greek",
+        "aliases": ["gre"]
+    },
+    "fa": {
+        "flags": ["🇮🇷"],
+        "emoji-tag": [":flag_ir:"],
+        "full": "فارسی",
+        "full_en": "Persian",
+        "aliases": ["prs", "per"]
+    },
+    "ur": {
+        "flags": ["🇵🇰"],
+        "emoji-tag": [":flag_pk:"],
+        "full": "اردو",
+        "full_en": "Urdu",
+        "aliases": ["urd"]
+    },
+    "zh-TW": {
+        "flags": ["🇹🇼"],
+        "emoji-tag": [":flag_tw:"],
+        "full": "繁體中文",
+        "full_en": "Chinese (Traditional)",
+        "aliases": ["zh-tw", "cht"]
+    },
+    "af": {
+        "flags": ["🇿🇦"],
+        "emoji-tag": [":flag_za:"],
+        "full": "Afrikaans",
+        "full_en": "Afrikaans",
+        "aliases": ["afr"]
+    },
+    "sq": {
+        "flags": ["🇦🇱"],
+        "emoji-tag": [":flag_al:"],
+        "full": "shqip",
+        "full_en": "Albanian",
+        "aliases": ["alb"]
+    },
+    "hy": {
+        "flags": ["🇦🇲"],
+        "emoji-tag": [":flag_am:"],
+        "full": "Հայերեն",
+        "full_en": "Armenian",
+        "aliases": ["arm"]
+    },
+    "az": {
+        "flags": ["🇦🇿"],
+        "emoji-tag": [":flag_az:"],
+        "full": "azərbaycan dili",
+        "full_en": "Azerbaijani",
+        "aliases": ["aze"]
+    },
+    "eu": {
+        "flags": ["🇪🇸"],
+        "emoji-tag": [":flag_es:"],
+        "full": "euskara",
+        "full_en": "Basque",
+        "aliases": ["baq"]
+    },
+    "bn": {
+        "flags": ["🇧🇩"],
+        "emoji-tag": [":flag_bd:"],
+        "full": "বাংলা",
+        "full_en": "Bengali",
+        "aliases": ["ben"]
+    },
+    "bs": {
+        "flags": ["🇧🇦"],
+        "emoji-tag": [":flag_ba:"],
+        "full": "bosanski",
+        "full_en": "Bosnian",
+        "aliases": ["bos"]
+    },
+    "ca": {
+        "flags": ["🇪🇸"],
+        "emoji-tag": [":flag_es:"],
+        "full": "català",
+        "full_en": "Catalan",
+        "aliases": ["cat"]
+    },
+    "hr": {
+        "flags": ["🇭🇷"],
+        "emoji-tag": [":flag_hr:"],
+        "full": "hrvatski",
+        "full_en": "Croatian",
+        "aliases": ["cro"]
+    },
+    "et": {
+        "flags": ["🇪🇪"],
+        "emoji-tag": [":flag_ee:"],
+        "full": "eesti",
+        "full_en": "Estonian",
+        "aliases": ["est"]
+    },
+    "tl": {
+        "flags": ["🇵🇭"],
+        "emoji-tag": [":flag_ph:"],
+        "full": "Filipino",
+        "full_en": "Filipino",
+        "aliases": ["fil"]
+    },
+    "ga": {
+        "flags": ["🇮🇪"],
+        "emoji-tag": [":flag_ie:"],
+        "full": "Gaeilge",
+        "full_en": "Irish",
+        "aliases": ["gle"]
+    },
+    "jw": {
+        "flags": ["🇮🇩"],
+        "emoji-tag": [":flag_id:"],
+        "full": "Basa Jawa",
+        "full_en": "Javanese",
+        "aliases": ["jav"]
+    },
+    "kn": {
+        "flags": ["🇮🇳"],
+        "emoji-tag": [":flag_in:"],
+        "full": "ಕನ್ನಡ",
+        "full_en": "Kannada",
+        "aliases": ["kan"]
+    },
+    "kk": {
+        "flags": ["🇰🇿"],
+        "emoji-tag": [":flag_kz:"],
+        "full": "Қазақ тілі",
+        "full_en": "Kazakh",
+        "aliases": ["kaz"]
+    },
+    "km": {
+        "flags": ["🇰🇭"],
+        "emoji-tag": [":flag_kh:"],
+        "full": "ភាសាខ្មែរ",
+        "full_en": "Khmer",
+        "aliases": ["khm"]
+    },
+    "la": {
+        "flags": ["🇱🇻"],
+        "emoji-tag": [":flag_lv:"],
+        "full": "Lingua Latina",
+        "full_en": "Latin",
+        "aliases": ["lat"]
+    },
+    "lb": {
+        "flags": ["🇱🇺"],
+        "emoji-tag": [":flag_lu:"],
+        "full": "Lëtzebuergesch",
+        "full_en": "Luxembourgish",
+        "aliases": ["ltz"]
+    },
+    "mi": {
+        "flags": ["🇳🇿"],
+        "emoji-tag": [":flag_nz:"],
+        "full": "Māori",
+        "full_en": "Māori",
+        "aliases": ["mao"]
+    },
+    "mn": {
+        "flags": ["🇲🇳"],
+        "emoji-tag": [":flag_mn:"],
+        "full": "Монгол хэл",
+        "full_en": "Mongolian",
+        "aliases": ["mon"]
+    },
+    "my": {
+        "flags": ["🇲🇲"],
+        "emoji-tag": [":flag_mm:"],
+        "full": "ဗမာစာ",
+        "full_en": "Burmese",
+        "aliases": ["bur"]
+    },
+    "ne": {
+        "flags": ["🇳🇵"],
+        "emoji-tag": [":flag_np:"],
+        "full": "नेपाली",
+        "full_en": "Nepali",
+        "aliases": ["nep"]
+    },
+    "no": {
+        "flags": ["🇳🇴"],
+        "emoji-tag": [":flag_no:"],
+        "full": "norsk",
+        "full_en": "Norwegian",
+        "aliases": ["nor"]
+    },
+    "ps": {
+        "flags": ["🇵🇰"],
+        "emoji-tag": [":flag_pk:"],
+        "full": "پښتو",
+        "full_en": "Pashto",
+        "aliases": ["pus"]
+    },
+    "pt": {
+        "flags": ["🇵🇹", "🇧🇷"],
+        "emoji-tag": [":flag_pt:", ":flag_br:"],
+        "full": "português",
+        "full_en": "Portuguese",
+        "aliases": ["por", "braz"]
+    },
+    "ro": {
+        "flags": ["🇷🇴"],
+        "emoji-tag": [":flag_ro:"],
+        "full": "română",
+        "full_en": "Romanian",
+        "aliases": ["rom"]
+    },
+    "si": {
+        "flags": ["🇱🇰"],
+        "emoji-tag": [":flag_lk:"],
+        "full": "සිංහල",
+        "full_en": "Sinhala",
+        "aliases": ["sin"]
+    },
+    "su": {
+        "flags": ["🇮🇩"],
+        "emoji-tag": [":flag_id:"],
+        "full": "Basa Sunda",
+        "full_en": "Sundanese",
+        "aliases": ["sun"]
+    },
+    "sw": {
+        "flags": ["🇰🇪"],
+        "emoji-tag": [":flag_ke:"],
+        "full": "Kiswahili",
+        "full_en": "Swahili",
+        "aliases": ["swa"]
+    },
+    "ta": {
+        "flags": ["🇮🇳"],
+        "emoji-tag": [":flag_in:"],
+        "full": "தமிழ்",
+        "full_en": "Tamil",
+        "aliases": ["tam"]
+    },
+    "te": {
+        "flags": ["🇮🇳"],
+        "emoji-tag": [":flag_in:"],
+        "full": "తెలుగు",
+        "full_en": "Telugu",
+        "aliases": ["tel"]
+    },
+    "tg": {
+        "flags": ["🇹🇯"],
+        "emoji-tag": [":flag_tj:"],
+        "full": "тоҷикӣ",
+        "full_en": "Tajik",
+        "aliases": ["tgk"]
+    },
+    "tk": {
+        "flags": ["🇹🇲"],
+        "emoji-tag": [":flag_tm:"],
+        "full": "Türkmençe",
+        "full_en": "Turkmen",
+        "aliases": ["tuk"]
+    },
+    "ug": {
+        "flags": ["🇨🇳"],
+        "emoji-tag": [":flag_cn:"],
+        "full": "ئۇيغۇرچە",
+        "full_en": "Uyghur",
+        "aliases": ["uig"]
+    },
+    "xh": {
+        "flags": ["🇿🇦"],
+        "emoji-tag": [":flag_za:"],
+        "full": "isiXhosa",
+        "full_en": "Xhosa",
+        "aliases": ["xho"]
+    },
+    "yi": {
+        "flags": ["🇮🇱"],
+        "emoji-tag": [":flag_il:"],
+        "full": "יידיש",
+        "full_en": "Yiddish",
+        "aliases": ["yid"]
+    },
+    "zu": {
+        "flags": ["🇿🇦"],
+        "emoji-tag": [":flag_za:"],
+        "full": "isiZulu",
+        "full_en": "Zulu",
+        "aliases": ["zul"]
+    }
+}
