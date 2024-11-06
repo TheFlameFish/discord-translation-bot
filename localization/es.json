@@ -8,5 +8,8 @@
     "command.translate.error.no_target": "Necesitas especificar un idioma de destino.",
     "command.translate.error.no_text": "Necesitas especificar un texto para traducir.",
     "command.translate.error.invalid_target": "El idioma de destino no es válido.",
-    "command.translate.error.permission": "No tienes permiso para usar el comando 'traducir'."
+    "command.translate.error.permission": "No tienes permiso para usar el comando 'traducir'.",
+
+    "command.config.list.name": "lista",
+    "permission.error.config.read_denied": "No tienes permiso para leer la configuración."
 }

@@ -8,5 +8,8 @@
     "command.translate.error.no_target": "You need to specify a target language.",
     "command.translate.error.no_text": "You need to specify text to translate.",
     "command.translate.error.invalid_target": "The target language is not valid.",
-    "command.translate.error.permission": "You do not have permission to use the 'translate' command."
+    "command.translate.error.permission": "You do not have permission to use the 'translate' command.",
+
+    "command.config.list.name": "list",
+    "permission.error.config.read_denied": "You do not have permission to read the configuration."
 }

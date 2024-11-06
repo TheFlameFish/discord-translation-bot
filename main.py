@@ -9,7 +9,7 @@ import localization
 
 load_dotenv()  # Load environment variables
 
-config.init()
+config.load()
 localization.load()
 
 intents = discord.Intents.all()
@@ -153,4 +153,7 @@ async def translate_embed(content, author, requester = None):
         embed.set_author(name=author.display_name, icon_url= author.avatar.url if author.avatar else author.default_avatar)
 
     return embed
+
+bot.load_extension("cogs.config")
+
 bot.run(os.getenv('DISCORD_TOKEN'))
