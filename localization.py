@@ -6,7 +6,7 @@ import os
 
 locales = {
     "en-GB": "en",      "en-US": "en",
-    "es-ES": "es",      
+    "es-ES": "es",      # "es-419": "es", # Supposedly not a supported locale
     "fr": "fr",         "hr": "hr",
     "it": "it",         "lt": "lt",
     "hu": "hu",         "no": "no",
@@ -41,7 +41,11 @@ def get_locale_dict(key: str, **kwargs):
     return dict
 
 def get(key: str, locale: str, **kwargs):
-    if locale not in localization:
-        return localization["en"].get(key, key).format(**kwargs)
+    if locale == "es-419":
+        locale = "es-ES" # Supposedly es-419 is not a supported locale. 
+                         # (Despite the fact that it is listed in their docs.)
+    elif locale not in localization:
+        print("Locale not available: ", locale)
+        return localization["en-US"].get(key, key).format(**kwargs)
 
     return localization[locale].get(key, key).format(**kwargs)
