@@ -14,7 +14,8 @@ bot = Bot(
     config_manager=config,
     translator={
         "google": lambda: GoogleTranslator()
-    }.get(config.get_key("translator"), GoogleTranslator)()
+    }.get(config.get_key("translator"), 
+          lambda: GoogleTranslator())()
 )
 
 
