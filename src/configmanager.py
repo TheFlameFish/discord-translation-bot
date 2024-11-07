@@ -41,7 +41,8 @@ class ConfigManager:
                         "@everyone": True
                     },
                 },
-                "reaction_translations": True
+                "reaction_translations": True,
+                "translator": "google"
             }
             with open(self.config_path, "w") as f:
                 json.dump(default_config, f, indent=4)
