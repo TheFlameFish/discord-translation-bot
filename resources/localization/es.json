@@ -10,6 +10,20 @@
     "command.translate.error.invalid_target": "El idioma de destino no es válido.",
     "command.translate.error.permission": "No tienes permiso para usar el comando 'traducir'.",
 
+    "command.config.name": "config",
+
     "command.config.list.name": "lista",
-    "permission.error.config.read_denied": "No tienes permiso para leer la configuración."
+    "permission.error.config.read_denied": "No tienes permiso para leer la configuración.",
+    "permission.error.config.write_denied": "No tienes permiso para escribir en la configuración.",
+    "permission.error.config.manage_perms_denied": "No tienes permiso para gestionar permisos.",
+
+    "command.config.check_permissions.name": "lista-permisos",
+
+    "command.config.add_permission.name": "añadir-permiso",
+
+    "command.config.remove_permission.name": "quitar-permiso",
+
+    "command.config.set_reaction_translations.name": "establecer-traducciones-reacción",
+
+    "command.config.set_translator.name": "establecer-traductor"
 }

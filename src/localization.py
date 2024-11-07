@@ -26,9 +26,9 @@ localization = {}
 def load():
     global localization
     for locale, file in locales.items():
-        if not os.path.exists(f"localization/{file}.json"):
+        if not os.path.exists(f"resources/localization/{file}.json"):
             continue
-        with open(f"localization/{file}.json") as f:
+        with open(f"resources/localization/{file}.json") as f:
             localization[locale] = json.load(f)
 
 def get_locale_dict(key: str, **kwargs):
@@ -49,3 +49,5 @@ def get(key: str, locale: str, **kwargs):
         return localization["en-US"].get(key, key).format(**kwargs)
 
     return localization[locale].get(key, key).format(**kwargs)
+
+load()

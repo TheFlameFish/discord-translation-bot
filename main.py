@@ -1,159 +1,22 @@
-import discord
-import os
 from dotenv import load_dotenv
+import os
 
-import config
-from google_translator import translate
-from google_translator import get_from_emoji
-import localization
+from src.bot import Bot
+from src.configmanager import ConfigManager
 
-load_dotenv()  # Load environment variables
+from src.translation.googletranslator import GoogleTranslator
 
-config.load()
-localization.load()
+load_dotenv()
 
-intents = discord.Intents.all()
-bot = discord.Bot(intents=intents)
+config = ConfigManager(
+    valid_translators={
+        "google": lambda: GoogleTranslator()
+    }
+)
 
-print(translate("Hello world!", "Español"))
-print(translate("Hello world!", "French"))
-print(translate("Hello world!", "jp"))
-
-@bot.event
-async def on_ready():
-    print(f"{bot.user} is ready and online!")
-    await bot.change_presence(
-        status=discord.Status.online,
-        activity=discord.Activity(type=discord.ActivityType.watching, name="you")
-    )
-
-@bot.command(
-                name_localizations = localization.get_locale_dict("command.ping.name"),
-                description_localizations = localization.get_locale_dict("command.ping.description"),
-                guild_ids=[1020794656189067305])
-async def ping(ctx):
-    print(localization.get_locale_dict("command.ping.description"))
-    # await ctx.respond(f"Pong! {round(bot.latency * 1000)}ms")
-    await ctx.respond(localization.get("command.ping.response", ctx.interaction.locale, ping=round(bot.latency * 1000)))
-
-@bot.command(
-                name_localizations = localization.get_locale_dict("command.translate.name"),
-                description_localizations = localization.get_locale_dict("command.translate.description"),
-                guild_ids=[1020794656189067305])
-async def translate_command(ctx: discord.ApplicationContext, text, target_language):
-    print("Translate command triggered.")
-
-    if not config.has_permission(ctx.author,"use_translation"): # Permission denied
-        print(f"User '{ctx.author.name}' does not have permission to use translations.")
-        await ctx.send_response(localization.get("command.translate.error.permission", ctx.interaction.locale), ephemeral=True)
-        return
-
-    if not target_language:
-        await ctx.respond(localization.get("command.translate.error.no_target", ctx.interaction.locale))
-        return
-    elif not text:
-        await ctx.respond(localization.get("command.translate.error.no_text", ctx.interaction.locale))
-        return
-
-    translation = translate(text, target_language)
-
-    if not translation:
-        await ctx.respond(localization.get("command.translate.error.invalid_target",
-                                            ctx.interaction.locale, 
-                                            language=target_language))
-        return
-
-    await ctx.respond(embed=await translate_embed(content = translation, 
-                                                  author = ctx.author))
-
-@bot.event
-async def on_raw_reaction_add(payload):
-    # Fetch the user who added the reaction
-    user = await bot.fetch_user(payload.user_id)
-    member = await bot.get_guild(payload.guild_id).fetch_member(user.id)
-
-    if not config.has_permission(member,"use_translation"): # Permission denied
-        print(f"User '{user.name}' does not have permission to use translations.")
-        return
-    
-    channel = bot.get_channel(payload.channel_id)
-    message = await channel.fetch_message(payload.message_id)
-
-    print(f"Reaction added by '{user.name}' with emoji '{payload.emoji.name}' to message '{message.content}'")
-
-    lang = get_from_emoji(payload.emoji.name)
-
-    if lang:
-        print(f"Detected language: {lang}.")
-        translation = translate(message.content, lang)
-
-        if not translation:
-            print("Failed to translate. Attempting to translate embed.")
-            embed, content = embed_translation(embed= message.embeds[0], language= lang, user_requested= user,
-                                               is_from_me= message.author == bot.user)
-            await message.reply(mention_author= False, embed= embed, content= content)
-            return
-        
-        await message.reply(mention_author= False, 
-                            embed = await translate_embed(content= translation,
-                                                          requester= user,
-                                                          author= message.author))
-    else:
-        print("No language detected.")
-        return
-
-def embed_translation(embed: discord.Embed, language: str, user_requested: discord.user, is_from_me: bool = False):
-    '''Translates an embed.
-    Not to be confused with translate_embed(), which generates an embed for translation messages.'''
-
-    new_embed = discord.Embed(
-        title = translate(embed.title, language) if embed.title else None,
-        description = translate(embed.description, language) if embed.description else None,
-        color = embed.color
-    )
-
-    if embed.author:
-        new_embed.set_author(
-            name = embed.author.name,
-            icon_url = embed.author.icon_url
-        )
-
-    for field in embed.fields:
-        new_embed.add_field(
-            name = translate(field.name, language),
-            value = translate(field.value, language),
-            inline = field.inline
-        )
-
-    content = f"Requested by {user_requested.display_name}"
-    if not embed.footer or is_from_me:
-        new_embed.set_footer(text = f"Requested by {user_requested.display_name}", icon_url= user_requested.avatar.url)
-        content = None
-    else:
-        new_embed.set_footer(text = translate(embed.footer.text, language), icon_url= embed.footer.icon_url)
-
-    return new_embed, content
-
-
-
-
-async def translate_embed(content, author, requester = None):
-    '''Generates an embed for translation messages.'''
-
-    print("Creating embed")
-    # Creating the embed
-    embed = discord.Embed(
-        description=content,  # Main description
-        color=discord.Color.blue()  # Set the color (customizable)
-    )
-    
-    if requester:
-        embed.set_footer(text=f"Requested by {requester.display_name}", icon_url=requester.avatar.url)
-    if author:
-        embed.set_author(name=author.display_name, icon_url= author.avatar.url if author.avatar else author.default_avatar)
-
-    return embed
-
-bot.load_extension("cogs.config")
+bot = Bot(
+    config_manager=config,
+    translator=config.valid_translators[config.get_key("translator")]()
+)
 
 bot.run(os.getenv('DISCORD_TOKEN'))

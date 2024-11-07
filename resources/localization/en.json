@@ -1,0 +1,30 @@
+{
+    "command.ping.name": "ping",
+    "command.ping.description": "Check the bot's latency.",
+    "command.ping.response": "Pong! Latency is {ping}ms.",
+
+    "command.translate.name": "translate",
+    "command.translate.description": "Translate text to another language.",
+    "command.translate.error.no_target": "You need to specify a target language.",
+    "command.translate.error.no_text": "You need to specify text to translate.",
+    "command.translate.error.invalid_target": "The target language is not valid.",
+    "command.translate.error.permission": "You do not have permission to use the 'translate' command.",
+
+    "command.config.name": "config",
+
+    "command.config.list.name": "list",
+    
+    "permission.error.config.read_denied": "You do not have permission to read the configuration.",
+    "permission.error.config.write_denied": "You do not have permission to write to the configuration.",
+    "permission.error.config.manage_perms_denied": "You do not have permission to manage permissions.",
+
+    "command.config.check_permissions.name": "list-permissions",
+
+    "command.config.add_permission.name": "add-permission",
+
+    "command.config.remove_permission.name": "remove-permission",
+
+    "command.config.set_reaction_translations.name": "set-reaction-translations",
+
+    "command.config.set_translator.name": "set-translator"
+}
