@@ -13,8 +13,7 @@ class Translation(commands.Cog):
 
     @discord.command(
                 name_localizations = localization.get_locale_dict("command.translate.name"),
-                description_localizations = localization.get_locale_dict("command.translate.description"),
-                guild_ids=[1020794656189067305])
+                description_localizations = localization.get_locale_dict("command.translate.description"))
     async def translate_command(self, ctx: discord.ApplicationContext, text, target_language):
         print("Translate command triggered.")
 
@@ -43,6 +42,9 @@ class Translation(commands.Cog):
         
     @commands.Cog.listener()
     async def on_raw_reaction_add(self, payload):
+        if not self.config.get_key("reaction_translations"):
+            return
+
         # Fetch the user who added the reaction
         user = await self.bot.fetch_user(payload.user_id)
         member = await self.bot.get_guild(payload.guild_id).fetch_member(user.id)

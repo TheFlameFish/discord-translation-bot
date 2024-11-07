@@ -2,10 +2,19 @@ import os
 import json
 import discord
 
+from src.translation.googletranslator import GoogleTranslator
+
 class ConfigManager:
-    def __init__(self, config_path="config.json"):
+    valid_translators = {
+        "google": lambda: GoogleTranslator()
+    }
+    
+    def __init__(self, config_path="config.json", valid_translators: dict=valid_translators):
         self.config_path = config_path
         self.config = {}
+
+        self.valid_translators = valid_translators
+
         self.initialized = False
         self.load()
 
@@ -95,3 +104,15 @@ class ConfigManager:
             if self.config["permissions"].get(permission, {}).get(role, False):
                 return True
         return False
+    
+    def get_permissions(self, user: discord.Member):
+        '''Returns the permissions of a user.'''
+        if not self.initialized:
+            self.load()
+        roles = self.get_roles(user)
+        permissions = {}
+        for permission in self.config["permissions"]:
+            for role in roles:
+                if self.config["permissions"][permission].get(role, False):
+                    permissions[permission] = True
+        return permissions
