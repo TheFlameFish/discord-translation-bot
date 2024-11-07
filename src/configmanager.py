@@ -9,7 +9,7 @@ class ConfigManager:
         "google": lambda: GoogleTranslator()
     }
     
-    def __init__(self, config_path="config.json", valid_translators: dict=valid_translators):
+    def __init__(self, config_path="/app/data/config.json", valid_translators: dict=valid_translators):
         self.config_path = config_path
         self.config = {}
 
