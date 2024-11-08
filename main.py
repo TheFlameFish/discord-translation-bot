@@ -17,7 +17,8 @@ os.makedirs(log_dir, exist_ok=True)
 log_retention_days = 50
 
 def cleanup_logs(directory, retention_days):
-    os.remove("/app/data/logs/latest.log")
+    if os.path.exists("/app/data/logs/latest.log"):
+        os.remove("/app/data/logs/latest.log")
     now = time.time()
     retention_seconds = retention_days * 86400 
     for filename in os.listdir(directory):
