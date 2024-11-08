@@ -39,6 +39,9 @@ def load(log: logging.Logger):
     logger.info("Loaded localization data.")
 
 def get_locale_dict(key: str, **kwargs):
+    if not localization:
+        logger.warn("Tried to call get_locale_dict() with localization data not loaded.")
+        return { "en-US": key.format(**kwargs) }
     dict = {}
 
     for locale, data in localization.items():
@@ -49,6 +52,9 @@ def get_locale_dict(key: str, **kwargs):
     return dict
 
 def get(key: str, locale: str, **kwargs):
+    if not localization:
+        logger.warn("Tried to call get() with localization data not loaded.")
+        return key.format(**kwargs)
     if locale == "es-419":
         locale = "es-ES" # Supposedly es-419 is not a supported locale. 
                          # (Despite the fact that it is listed in their docs.)
