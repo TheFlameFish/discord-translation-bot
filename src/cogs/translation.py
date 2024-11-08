@@ -10,15 +10,32 @@ class Translation(commands.Cog):
 
         self.translator = bot.translator
         self.config = bot.config
+        self.logger = bot.parent_logger.getChild(__name__)
 
-    @discord.command(
-                name_localizations = localization.get_locale_dict("command.translate.name"),
-                description_localizations = localization.get_locale_dict("command.translate.description"))
-    async def translate_command(self, ctx: discord.ApplicationContext, text, target_language):
-        print("Translate command triggered.")
+        localization.load(log=self.logger)
+
+        self.bot.add_application_command(
+            discord.SlashCommand(
+                name="translate",
+                description="Translate text to a specified language.",
+                name_localizations=localization.get_locale_dict("command.translate.name"),
+                description_localizations=localization.get_locale_dict("command.translate.description"),
+                func=self.translate
+            )
+        )
+
+
+
+    # @discord.slash_command(
+    #             name_localizations = localization.get_locale_dict("command.translate.name"),
+    #             description_localizations = localization.get_locale_dict("command.translate.description"),
+    #             name = "translate",
+    #             description = "Translate text to a specified language.")
+    async def translate(self, ctx: discord.ApplicationContext, text, target_language):
+        self.logger.info("Translate command triggered.")
 
         if not self.config.has_permission(ctx.author,"use_translation"): # Permission denied
-            print(f"User '{ctx.author.name}' does not have permission to use translations.")
+            self.logger.info(f"User '{ctx.author.name}' does not have permission to use translations.")
             await ctx.send_response(localization.get("command.translate.error.permission", ctx.interaction.locale), ephemeral=True)
             return
 
@@ -50,22 +67,22 @@ class Translation(commands.Cog):
         member = await self.bot.get_guild(payload.guild_id).fetch_member(user.id)
 
         if not self.config.has_permission(member,"use_translation"): # Permission denied
-            print(f"User '{user.name}' does not have permission to use translations.")
+            self.logger.info(f"User '{user.name}' does not have permission to use translations.")
             return
         
         channel = self.bot.get_channel(payload.channel_id)
         message = await channel.fetch_message(payload.message_id)
 
-        print(f"Reaction added by '{user.name}' with emoji '{payload.emoji.name}' to message '{message.content}'")
+        self.logger.info(f"Reaction added by '{user.name}' with emoji '{payload.emoji.name}' to message '{message.content}'")
 
         lang = self.translator.get_from_emoji(payload.emoji.name)
 
         if lang:
-            print(f"Detected language: {lang}.")
+            self.logger.info(f"Detected language: {lang}.")
             translation = self.translator.translate(message.content, lang)
 
             if not translation:
-                print("Failed to translate. Attempting to translate embed.")
+                self.logger.info("Failed to translate. Attempting to translate embed.")
                 embed, content = self.embed_translation(embed= message.embeds[0], language= lang, user_requested= user,
                                                 is_from_me= (message.author == self.bot.user))
                 await message.reply(mention_author= False, embed= embed, content= content)
@@ -76,8 +93,9 @@ class Translation(commands.Cog):
                                                             requester= user,
                                                             author= message.author))
         else:
-            print("No language detected.")
+            self.logger.info("No language detected.")
             return
+
 
     def embed_translation(self, embed: discord.Embed, language: str, user_requested: discord.user, is_from_me: bool = False):
         '''Translates an embed.
@@ -115,7 +133,7 @@ class Translation(commands.Cog):
     async def translate_embed(self, content, author, requester = None):
         '''Generates an embed for translation messages.'''
 
-        print("Creating embed")
+        self.logger.info("Creating embed")
         # Creating the embed
         embed = discord.Embed(
             description=content,  # Main description

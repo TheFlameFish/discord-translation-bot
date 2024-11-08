@@ -1,6 +1,8 @@
 import os
 import json
 import discord
+import logging
+from typing import Type
 
 from src.translation.googletranslator import GoogleTranslator
 
@@ -9,9 +11,10 @@ class ConfigManager:
         "google": lambda: GoogleTranslator()
     }
     
-    def __init__(self, config_path="/app/data/config.json", valid_translators: dict=valid_translators):
+    def __init__(self, logger: Type[logging.Logger], config_path="/app/data/config.json", valid_translators: dict=valid_translators):
         self.config_path = config_path
         self.config = {}
+        self.logger = logger.getChild(__name__)
 
         self.valid_translators = valid_translators
 
@@ -49,7 +52,7 @@ class ConfigManager:
             self.config = default_config
 
         self.initialized = True
-        print("Config loaded:", self.config)
+        self.logger.info("Config loaded:", self.config)
 
     def _write(self):
         '''Writes the config object to config.json.'''

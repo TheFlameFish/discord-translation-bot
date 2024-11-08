@@ -12,6 +12,9 @@ class Config(commands.Cog):
         self.bot = bot
 
         self.config = bot.config
+        self.logger = bot.parent_logger.getChild(__name__)
+
+        localization.load(log=self.logger)
 
     config_group = discord.SlashCommandGroup(
         name="config",
@@ -24,10 +27,10 @@ class Config(commands.Cog):
     )
     async def list(self, ctx: discord.ApplicationContext):
         if not self.config.has_permission(ctx.author, "config.read"):
-            print(f"User '{ctx.author.name}' does not have permission to read the config.")
+            self.logger.info(f"User '{ctx.author.name}' does not have permission to read the config.")
             await ctx.send_response(localization.get("permission.error.config.read_denied", ctx.interaction.locale), 
                                     ephemeral=True)
-        print("List command triggered.")
+        self.logger.info("List command triggered.")
 
         await ctx.respond(f"# Config: \n{
             json.dumps(self.config.get(), indent=4)}")
@@ -37,10 +40,10 @@ class Config(commands.Cog):
     )
     async def list_permissions(self, ctx: discord.ApplicationContext, user: discord.Member):
         if not self.config.has_permission(ctx.author, "config.read"):
-            print(f"User '{ctx.author.name}' does not have permission to read permissions.")
+            self.logger.info(f"User '{ctx.author.name}' does not have permission to read permissions.")
             await ctx.send_response(localization.get("permission.error.config.read_denied", ctx.interaction.locale), 
                                     ephemeral=True)
-        print("Check permissions command triggered.")
+        self.logger.info("Check permissions command triggered.")
 
         await ctx.respond(f"# Permissions for user '{user.name}': \n{
             json.dumps(self.config.get_permissions(user), indent=4)}")
@@ -50,12 +53,12 @@ class Config(commands.Cog):
     )
     async def add_permission(self, ctx: discord.ApplicationContext, role: discord.Role, permission: str):
         if not self.config.has_permission(ctx.author, "config.manage_perms"):
-            print(f"User '{ctx.author.name}' does not have permission to manage permissions.")
+            self.logger.info(f"User '{ctx.author.name}' does not have permission to manage permissions.")
             await ctx.send_response(localization.get("permission.error.config.manage_perms_denied", ctx.interaction.locale), 
                                     ephemeral=True)
             return
 
-        print("Add permission command triggered.")
+        self.logger.info("Add permission command triggered.")
 
         try:
             self.config.add_permission(role.name, permission)
@@ -69,12 +72,12 @@ class Config(commands.Cog):
     )
     async def remove_permission(self, ctx: discord.ApplicationContext, role: discord.Role, permission: str):
         if not self.config.has_permission(ctx.author, "config.manage_perms"):
-            print(f"User '{ctx.author.name}' does not have permission to manage permissions.")
+            self.logger.info(f"User '{ctx.author.name}' does not have permission to manage permissions.")
             await ctx.send_response(localization.get("permission.error.config.manage_perms_denied", ctx.interaction.locale), 
                                     ephemeral=True)
             return
 
-        print("Remove permission command triggered.")
+        self.logger.info("Remove permission command triggered.")
 
         try:
             self.config.remove_permission(role.name, permission)
@@ -88,12 +91,12 @@ class Config(commands.Cog):
     )
     async def set_reaction_translations(self, ctx: discord.ApplicationContext, value: bool):
         if not self.config.has_permission(ctx.author, "config.general_write"):
-            print(f"User '{ctx.author.name}' does not have permission to adjust config.")
+            self.logger.info(f"User '{ctx.author.name}' does not have permission to adjust config.")
             await ctx.send_response(localization.get("permission.error.config.write_denied", ctx.interaction.locale), 
                                     ephemeral=True)
             return
 
-        print("Set reaction translations command triggered.")
+        self.logger.info("Set reaction translations command triggered.")
 
         self.config.set("reaction_translations", value)
         await ctx.respond(f"Set reaction translations to '{value}'.")
@@ -103,12 +106,12 @@ class Config(commands.Cog):
     )
     async def set_translator(self, ctx: discord.ApplicationContext, translator: str):
         if not self.config.has_permission(ctx.author, "config.general_write"):
-            print(f"User '{ctx.author.name}' does not have permission to adjust config.")
+            self.logger.info(f"User '{ctx.author.name}' does not have permission to adjust config.")
             await ctx.send_response(localization.get("permission.error.config.write_denied", ctx.interaction.locale), 
                                     ephemeral=True)
             return
 
-        print("Set translator command triggered.")
+        self.logger.info("Set translator command triggered.")
 
         if translator not in self.config.valid_translators:
             await ctx.send_response(f"Invalid translator '{translator}'.\nValid translators are: {self.config.valid_translators}", ephemeral=True)

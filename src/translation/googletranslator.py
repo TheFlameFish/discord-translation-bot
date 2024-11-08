@@ -1,11 +1,13 @@
 from deep_translator import GoogleTranslator as _GoogleTranslator
 import json
+import logging
 
 from src.translation.translator import Translator
 
 class GoogleTranslator(Translator):
-    def __init__(self, langs_path="resources/langs_GT.json"):
+    def __init__(self,logger: logging.Logger, langs_path="resources/langs_GT.json"):
         self.langs_path = langs_path
+        self.logger = logger.getChild(__name__)
 
     def get_lang(self, lang: str) -> str:
         '''Takes a language code or full name and returns the language code'''
@@ -26,17 +28,17 @@ class GoogleTranslator(Translator):
 
     def get_from_emoji(self, emoji: str) -> str:
         '''Finds a language by its associated emoji.'''
-        print(f"Looking up language for emoji: {emoji}")
+        self.logger.info(f"Looking up language for emoji: {emoji}")
         with open(self.langs_path) as f:
             langs = json.load(f)
 
         # Iterate through the languages and their flags
         for lang, data in langs.items():
             if emoji in data.get("flags", []):  # Check if the emoji is in the flags list
-                print(f"Found language '{lang}' for emoji '{emoji}'")
+                self.logger.info(f"Found language '{lang}' for emoji '{emoji}'")
                 return lang
                 
-        print(f"No language found for emoji: {emoji}")
+        self.logger.info(f"No language found for emoji: {emoji}")
         return None
     
     def translate(self, text: str, target_language: str, source_language: str = None) -> str:
