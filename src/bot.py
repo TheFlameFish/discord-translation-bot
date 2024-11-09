@@ -16,14 +16,14 @@ class Bot(discord.Bot):
         self.config = config_manager
         self.translator = translator
         self.parent_logger = logger
-        self.loggger = logger.getChild(__name__)
+        self.logger = logger.getChild(__name__)
 
         # Add cogs
         self.load_extension("src.cogs.translation")
         self.load_extension("src.cogs.config")
 
     async def on_ready(self):
-        self.loggger.info(f"{self.user} is ready and online.")
+        self.logger.info(f"{self.user} is ready and online.")
         await self.change_presence(
             status=discord.Status.online,
             activity=discord.Activity(type=discord.ActivityType.watching, name="you")

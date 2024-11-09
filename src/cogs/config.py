@@ -9,6 +9,7 @@ from src.translation.googletranslator import GoogleTranslator
 
 class Config(commands.Cog):
     def __init__(self, bot: Bot):
+        print("Config init")
         self.bot = bot
 
         self.config = bot.config
