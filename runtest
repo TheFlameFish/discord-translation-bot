@@ -1,3 +1,3 @@
 docker build -t TheFlameFish/discord-translation-bot .
 
-docker run --rm --env-file .env -v discord-translation-bot:/app/data TheFlameFish/discord-translation-bot pytest
+docker run --rm -v discord-translation-bot:/app/data TheFlameFish/discord-translation-bot pytest
