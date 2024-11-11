@@ -47,6 +47,7 @@ class ConfigManager:
                 "reaction_translations": True,
                 "translator": "google"
             }
+            os.makedirs(os.path.dirname(self.config_path), exist_ok=True)
             with open(self.config_path, "w") as f:
                 json.dump(default_config, f, indent=4)
             self.config = default_config
