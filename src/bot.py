@@ -28,4 +28,3 @@ class Bot(discord.Bot):
             status=discord.Status.online,
             activity=discord.Activity(type=discord.ActivityType.watching, name="you")
         )
-
