@@ -61,7 +61,7 @@ class Translation(commands.Cog):
     async def on_raw_reaction_add(self, payload):
         if not self.config.get_key("reaction_translations"):
             return
-
+        
         # Fetch the user who added the reaction
         user = await self.bot.fetch_user(payload.user_id)
         member = await self.bot.get_guild(payload.guild_id).fetch_member(user.id)

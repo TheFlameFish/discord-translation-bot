@@ -40,6 +40,8 @@ def load(log: logging.Logger):
 
 def get_locale_dict(key: str, **kwargs):
     if not localization:
+        if not logger:
+            load(logging.getLogger())
         logger.warn("Tried to call get_locale_dict() with localization data not loaded.")
         return { "en-US": key.format(**kwargs) }
     dict = {}
