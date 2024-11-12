@@ -4,20 +4,20 @@
 A translation bot for Discord. It includes a translation command, as well as the ability to translate in response to flag emoji reactions (may be disabled within config).
 
 ## Setup:
+### Building from source 
 ---
 #### Requirements:
 Installed:
-* Python 3 & Pip
 * Git
+* Docker
 
 ---
 1. Clone git repository on host machine
-2. (Sort of optional) Create and activate a virtualenv
-3. Pip Install:
-    - py-cord
-    - deep-translator
-4. Create a .env file in the project's root directory. Add your discord bot's token for the variable `DISCORD_TOKEN`.
-5. Run main.py (you'll probably want to have it automatically run)
+2. Create a volume for the docker container
+    - The `run` and `runtest` scripts assume you have it named `discord-translation-bot`. If you name it something else and want to use the script, ensure you modify the `-v` parameter accordingly.
+3. To build, either run the `run` script or use the command `docker build -t TheFlameFish/discord-translation-bot .`. If you use the `run` script, you can do `ctrl+C` to terminate it.
+4. Set up a .env file with the variable `DISCORD_TOKEN`.
+5. Set up your host machine to automatically run `docker run --rm --env-file {path to your .env file} -v {your volume's name}:/app/data TheFlameFish/discord-translation-bot`
 
 ## Usage:
 ### Translation
