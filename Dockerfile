@@ -1,3 +1,8 @@
+LABEL org.opencontainers.image.source=https://github.com/TheFlameFish/discord-translation-bot 
+LABEL org.opencontainers.image.description="A Discord bot for translation."
+LABEL org.opencontainers.image.licenses=GNU General Public License v3.0
+
+
 FROM python:3.12.7
 
 WORKDIR /app
